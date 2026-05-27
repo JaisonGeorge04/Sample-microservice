@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/JaisonGeorge04/Sample-microservice.git'
+                echo 'Cloning Repository'
             }
         }
 
@@ -14,12 +14,12 @@ pipeline {
                 sh '''
                 sudo apt update
                 sudo apt install python3-pip -y
-                pip3 install -r requirements.txt
+                pip3 install flask
                 '''
             }
         }
 
-        stage('Run Application') {
+        stage('Deploy Application') {
             steps {
                 sh '''
                 pkill -f app.py || true
@@ -27,5 +27,6 @@ pipeline {
                 '''
             }
         }
+
     }
 }
