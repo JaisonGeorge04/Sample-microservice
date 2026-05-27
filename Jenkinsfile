@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                pip3 install flask
+                pip3 install flask --break-system-packages
                 '''
             }
         }
